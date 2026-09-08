@@ -90,7 +90,7 @@
             margin: 0;
         }
 
-        /* Main App Card (Replaces Modal) */
+        /* Main App Card */
         .app-card {
             background: #191428;
             backdrop-filter: blur(12px);
@@ -321,6 +321,7 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             text-align: left;
+            min-height: 420px; /* Gives the CAPTCHA enough vertical room to breathe */
         }
 
         .blurred-content {
@@ -355,11 +356,35 @@
             padding: 20px;
             text-align: center;
             box-sizing: border-box;
+            overflow-y: auto; /* Allow scrolling if CAPTCHA extends beyond height */
         }
 
         .lock-icon { font-size: 40px; margin-bottom: 10px; color: #f6e58d; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .lock-text { color: #fff; font-size: 18px; font-weight: bold; line-height: 1.4; margin-bottom: 10px; }
         .lock-subtext { color: #a4b0be; font-size: 13px; margin-bottom: 20px; line-height: 1.5; padding: 0 10px; }
+
+        /* CAPTCHA Responsive Styling */
+        [data-captcha-enable="true"] {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        
+        [data-captcha-enable="true"] iframe,
+        [data-captcha-enable="true"] > div {
+            max-width: 100% !important;
+        }
+
+        /* Mobile Adjustments for extra space */
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .app-card { padding: 16px; }
+            .locked-form-container { padding: 15px; min-height: 460px; }
+            .lock-overlay { padding: 15px 5px; }
+            .lock-subtext { margin-bottom: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -455,7 +480,7 @@
 
                 <!-- Final Call to Action with Blurred Form overlay -->
                 <div id="final-cta-section" style="display: none; margin-top: 30px;">
-                    <h3 style="text-align: center; color: #f6e58d; margin-bottom: 10px;">✦ Take the Test to Generate Your Soulmate Sketch</h3>
+                    <h3 style="text-align: center; color: #f6e58d; margin-bottom: 10px;">✦ Take the TEST to Generate Your Soulmate Sketch</h3>
                     <p style="text-align: center; font-size: 14px; color: #e2e8f0; margin-bottom: 20px;">This test is fully optimized and tailored exclusively for you.</p>
 
                     <div class="locked-form-container">
@@ -480,7 +505,8 @@
                         <div class="lock-overlay">
                             <div class="lock-icon">🔒</div>
                             <p class="lock-text">Profile & Sketch Locked</p>
-                            <p class="lock-subtext">Please complete a human verification CAPTCHA action below to verify your connection and instantly unlock your drawing.</p>
+                            <p class="lock-subtext">Please complete a human verification action below to verify your connection and unlock your drawing.</p>
+                            
                             <!-- Step Two: HTML location for CAPTCHA -->
                             <div data-captcha-enable="true"></div>
                         </div>
@@ -506,7 +532,7 @@
             <span class="close-modal" onclick="closeModal('privacy-modal')">&times;</span>
             <h2>Privacy Policy</h2>
             <p>Your privacy is important to us. This page outlines how we collect, use, and protect your information when you use our landing page.</p>
-            <p><strong>Information Collection:</strong> We do not directly collect personal data on this specific landing page. However, interacting with the "Unlock" button directs you to a third-party offer network (OGads). Any information you submit there (such as emails for verification) is subject to their respective privacy policies.</p>
+            <p><strong>Information Collection:</strong> We do not directly collect personal data on this specific landing page. However, interacting with the "Unlock" button directs you to a third-party offer network. Any information you submit there is subject to their respective privacy policies.</p>
             <p><strong>Use of Information:</strong> The offers and surveys presented are used for content locking verification to grant you access to the digital sketch content.</p>
         </div>
     </div>
@@ -525,14 +551,14 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('disclaimer-modal')">&times;</span>
             <h2>Disclaimer</h2>
-            <p><strong>Affiliate & Promotional Disclaimer:</strong> This website is an independent promotional landing page. To access the promised content, users are required to interact with a third-party content locking system powered by OGads.</p>
+            <p><strong>Affiliate & Promotional Disclaimer:</strong> This website is an independent promotional landing page. To access the promised content, users are required to interact with a third-party content locking system.</p>
             <p><strong>No Guarantees:</strong> The "Soulmate Sketch" is provided for entertainment purposes. We make no bold claims regarding its accuracy or nature. By using this site, you acknowledge that you are proceeding voluntarily to unlock digital entertainment content.</p>
         </div>
     </div>
 
     <!-- Interactivity Script -->
     <script>
-        // Modal logic reduced to just the legal text links
+        // Modal logic
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -775,7 +801,7 @@
         }
     </script>
     
-    <!-- Step One: Include Script -->
+    <!-- Step One: Include Script (Positioned right before the closing body tag) -->
     <script type="text/javascript" src="https://saveapp.space/cp/js/lk0zy"></script>
 </body>
 </html>
