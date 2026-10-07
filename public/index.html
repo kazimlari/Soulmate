@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coach Shopper Reward - LIVE</title>
+    <title>Honest Rewards - LIVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -12,7 +12,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9f8f6; /* Soft cream tint */
+            background-color: #f0f4f8; /* Soft blue tint */
             color: #333;
             display: flex;
             justify-content: center;
@@ -48,7 +48,7 @@
         .blink-dot {
             width: 8px;
             height: 8px;
-            background: #ff4d4d;
+            background: #3385ff;
             border-radius: 50%;
             animation: blink 1.5s infinite;
         }
@@ -58,9 +58,9 @@
         .gift-card-img {
             width: 100%;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-            /* Coach Sleek Black Gradient */
-            background: linear-gradient(135deg, #2b2b2b 0%, #000000 100%);
+            box-shadow: 0 10px 25px rgba(0, 45, 114, 0.25);
+            /* Old Navy Blue Gradient */
+            background: linear-gradient(135deg, #002d72 0%, #001538 100%);
             aspect-ratio: 1.6;
             display: flex;
             align-items: center; justify-content: center;
@@ -84,7 +84,7 @@
         .price-tag { 
             position: absolute;
             bottom: 15px; right: 15px; 
-            color: #000000; 
+            color: #002d72; 
             font-weight: 900; font-size: 1.4rem; 
             background: rgba(255,255,255,0.95);
             padding: 5px 10px;
@@ -114,7 +114,7 @@
         .list-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
         .list-item:last-child { margin-bottom: 0; }
         .icon-check { 
-            background-color: #000000;
+            background-color: #002d72;
             color: #ffffff;
             width: 20px;
             height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; margin-right: 12px; flex-shrink: 0;
@@ -145,12 +145,12 @@
             z-index: 100;
         }
         .claim-btn {
-            background-color: #000000;
+            background-color: #002d72;
             color: #ffffff; 
             width: 100%; max-width: 400px;
             padding: 16px; border: none; border-radius: 12px;
             font-size: 1.2rem; font-weight: 700; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 45, 114, 0.4);
             animation: pulseBtn 2s infinite;
         }
         @keyframes pulseBtn { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
@@ -173,7 +173,7 @@
 <body>
 
     <div class="toast" id="toast">
-        <i class="fa-solid fa-gift" style="color: #c5a059;"></i>
+        <i class="fa-solid fa-gift" style="color: #3385ff;"></i>
         <span id="toast-text">User claimed reward</span>
     </div>
 
@@ -185,12 +185,12 @@
         </div>
 
         <div class="gift-card-img">
-            <div class="logo-text"><i class="fa-solid fa-star"></i> COACH REWARDS</div>
-            <i class="fa-solid fa-bag-shopping card-icon"></i>
+            <div class="logo-text"><i class="fa-solid fa-star"></i> HONEST REWARDS</div>
+            <i class="fa-solid fa-shirt card-icon"></i>
             <div class="price-tag">$500</div>
         </div>
 
-        <h1>Coach Gift Card</h1>
+        <h1>Old Navy Gift Card</h1>
         <p class="subtitle">Complete the steps below to unlock your shopping spree</p>
 
         <div class="info-card">
@@ -236,7 +236,7 @@
     </div>
 
     <div class="sticky-footer">
-        <button class="claim-btn" onclick="window.location.href='https://offertrk.org/cl/i/j749oo'">Claim $500 Now</button>
+        <button class="claim-btn" onclick="window.location.href='https://trkoffer.net/cl/i/34jgqv'">Claim $500 Now</button>
     </div>
 
     <script>
