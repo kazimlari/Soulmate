@@ -1,284 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Target Shopper Reward - LIVE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get $500 towards Target</title>
+<meta name="description" content="Complete partner Deals to earn a $500 Target reward. Offer not sponsored or endorsed by Target.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#d3112d; --red-dark:#a80d24; --ink:#1b1b1f; --muted:#5f6068;
+  --line:#e6e4e1; --paper:#faf8f6; --white:#fff; --gold:#f5c542; --panel:#26262a;
+  --focus:#1a5fd0;
+}
+@media (prefers-color-scheme: dark){ :root{} }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+/* top bar */
+.top{background:var(--white);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand span{color:var(--red)}
+.top small{color:var(--muted);font-size:.78rem}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fdf2f2; /* Soft red/blush tint */
-            color: #333;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            padding-bottom: 90px;
-            overflow-x: hidden;
-        }
+/* hero */
+.hero{background:var(--white);padding:28px 0 36px;border-bottom:1px solid var(--line)}
+.reward-card{width:210px;margin:0 auto 22px;background:var(--red);color:#fff;border-radius:12px;padding:14px 16px 0;box-shadow:0 14px 30px -12px rgba(211,17,45,.55);overflow:hidden}
+.reward-card .row{display:flex;align-items:center;gap:10px;justify-content:center}
+.reward-card svg{width:52px;height:52px;flex:none}
+.reward-card .amt{font-size:3rem;font-weight:700;line-height:1;letter-spacing:-.03em}
+.reward-card .amt sup{font-size:1.4rem;vertical-align:top;position:relative;top:4px;margin-right:2px}
+.reward-card .name{font-weight:800;letter-spacing:.06em;font-size:1.3rem;text-align:center;margin-top:4px;padding-bottom:10px}
+.reward-card .disc{background:#d9d9dc;color:#222;font-size:.6rem;font-weight:700;text-align:center;padding:3px 4px;margin:0 -16px}
+h1{font-size:clamp(1.9rem,6.5vw,2.6rem);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-align:center}
+.lede{text-align:center;color:var(--muted);margin:10px auto 24px;max-width:46ch}
 
-        .mobile-container {
-            width: 100%;
-            max-width: 420px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* quiz */
+.quiz{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 20px 24px;box-shadow:0 8px 24px -16px rgba(0,0,0,.25)}
+.progress{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.progress i{flex:1;height:5px;border-radius:3px;background:#dde0e4;transition:background .25s}
+.progress i.on{background:#1565d8}
+.progress span{font-size:.8rem;color:var(--muted);white-space:nowrap;margin-left:4px}
+.q{font-size:1.15rem;font-weight:700;text-align:center;margin-bottom:18px}
+.opts{display:grid;gap:12px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;padding:0 22px;height:58px;border-radius:30px;border:1px solid #d6d9e6;background:#f2f4fc;font:inherit;font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .1s}
+.opt:hover{background:#e7ebfa;border-color:#b9c2ec}
+.opt:active{transform:scale(.99)}
+.opt svg{width:26px;height:26px;stroke:#1565d8;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.opt b{flex:1;text-align:center;margin-right:40px}
+.step[hidden]{display:none}
 
-        /* --- Live Badge --- */
-        .live-badge {
-            background: #1d1d1d;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            align-self: flex-start;
-        }
-        .blink-dot {
-            width: 8px;
-            height: 8px;
-            background: #ff4d4d;
-            border-radius: 50%;
-            animation: blink 1.5s infinite;
-        }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+/* email step */
+.email-form label{display:block;font-weight:700;text-align:center;font-size:1.15rem;margin-bottom:6px}
+.email-form .hint{text-align:center;color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.field{width:100%;height:54px;border:1.5px solid #c9ccd3;border-radius:12px;padding:0 16px;font:inherit;font-size:1rem;background:#fff}
+.field:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(26,95,208,.2)}
+.field[aria-invalid="true"]{border-color:var(--red)}
+.err{color:var(--red-dark);font-size:.85rem;margin-top:6px;min-height:1.2em}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--red);color:#fff;font:inherit;font-weight:800;font-size:1.08rem;padding:16px;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
+.btn:hover{background:var(--red-dark)}
+.consent{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center}
+.consent a{color:var(--muted)}
+.under18{text-align:center;padding:10px 0}
+.under18 p{color:var(--muted);margin-top:8px}
 
-        /* --- Hero Art --- */
-        .gift-card-img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(204, 0, 0, 0.25);
-            /* Target Red Gradient */
-            background: linear-gradient(135deg, #e60000 0%, #990000 100%);
-            aspect-ratio: 1.6;
-            display: flex;
-            align-items: center; justify-content: center;
-            position: relative; overflow: hidden; margin-bottom: 20px;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .card-icon {
-            font-size: 80px;
-            color: #ffffff;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
-            animation: floatIcon 3s ease-in-out infinite;
-        }
+/* sections */
+section.block{padding:44px 0;border-bottom:1px solid var(--line)}
+h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px}
+.block p{color:var(--muted)}
+.deals-list{list-style:none;margin-top:18px;display:grid;gap:12px}
+.deals-list li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.deals-list svg{width:22px;height:22px;flex:none;margin-top:2px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.deals-list strong{display:block;font-size:.95rem}
+.deals-list span{font-size:.88rem;color:var(--muted)}
 
-        @keyframes floatIcon {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
+/* reward table */
+.table-shell{background:#161618;border-radius:18px;padding:18px;margin-top:20px}
+table{width:100%;border-collapse:separate;border-spacing:0;color:#eee;text-align:center;font-style:italic;font-weight:600}
+th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:16px 6px;line-height:1.35;border-bottom:1px solid #3b3b40;background:var(--panel)}
+td{padding:11px 6px;font-size:1rem;background:var(--panel)}
+th:first-child{border-top-left-radius:12px}th:last-child{border-top-right-radius:12px}
+tr:last-child td:first-child{border-bottom-left-radius:12px}tr:last-child td:last-child{border-bottom-right-radius:12px}
+th.rv,td.rv{border-left:2px solid var(--gold);border-right:2px solid var(--gold);color:#fff;font-weight:800}
+th.rv{border-top:2px solid var(--gold);border-top-left-radius:12px;border-top-right-radius:12px}
+tr:last-child td.rv{border-bottom:2px solid var(--gold);border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+tr.hl td{background:#33333a}
+td sup{font-size:.6em;font-weight:600;opacity:.8}
+.fine{font-size:.78rem;color:var(--muted);margin-top:14px}
 
-        .price-tag { 
-            position: absolute;
-            bottom: 15px; right: 15px; 
-            color: #cc0000; 
-            font-weight: 900; font-size: 1.4rem; 
-            background: rgba(255,255,255,0.95);
-            padding: 5px 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .logo-text { 
-            position: absolute;
-            top: 15px; left: 15px;
-            color: #ffffff; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.5px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
+/* faq */
+details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-top:10px}
+summary{cursor:pointer;list-style:none;padding:15px 16px;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--red);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 16px 16px;font-size:.92rem}
 
-        h1 { font-size: 1.4rem; font-weight: 800; text-align: center; color: #111; margin-bottom: 5px; }
-        .subtitle { font-size: 0.9rem; color: #666; text-align: center; margin-bottom: 20px; }
+/* cta band */
+.cta-band{padding:44px 0 36px;text-align:center}
+.cta-band .btn{max-width:360px;margin:18px auto 0}
 
-        /* --- Cards --- */
-        .info-card {
-            background: white;
-            width: 100%; border-radius: 16px;
-            padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            margin-bottom: 12px;
-        }
-        .card-header { color: #1d1d1d; font-weight: 700; font-size: 1rem; margin-bottom: 15px; display: flex; justify-content: space-between; }
-
-        /* Checklist */
-        .list-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
-        .list-item:last-child { margin-bottom: 0; }
-        .icon-check { 
-            background-color: #cc0000;
-            color: #ffffff;
-            width: 20px;
-            height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; margin-right: 12px; flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .text-content h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; }
-        .text-content p { font-size: 0.75rem; color: #777; }
-
-        /* Common Questions */
-        .question-item { padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer; }
-        .question-item:last-child { border-bottom: none; }
-        .q-header { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.9rem; }
-        .q-answer { 
-            max-height: 0;
-            overflow: hidden; transition: max-height 0.3s ease; 
-            color: #666; font-size: 0.85rem; margin-top: 0;
-        }
-        .question-item.active .q-answer { max-height: 100px; margin-top: 10px; }
-        .question-item.active .fa-plus { transform: rotate(45deg); transition: transform 0.3s; }
-
-        /* --- Footer --- */
-        .sticky-footer {
-            position: fixed;
-            bottom: 0; left: 0; width: 100%;
-            background: white; padding: 15px;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
-            display: flex; justify-content: center;
-            z-index: 100;
-        }
-        .claim-btn {
-            background-color: #cc0000;
-            color: #ffffff; 
-            width: 100%; max-width: 400px;
-            padding: 16px; border: none; border-radius: 12px;
-            font-size: 1.2rem; font-weight: 700; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
-            animation: pulseBtn 2s infinite;
-        }
-        @keyframes pulseBtn { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-
-        /* --- Toast Notification --- */
-        .toast {
-            position: fixed;
-            top: 15px; right: 15px;
-            background: rgba(0,0,0,0.9); color: white;
-            padding: 10px 15px; border-radius: 8px;
-            font-size: 0.75rem; display: flex; align-items: center;
-            gap: 10px;
-            transform: translateX(150%); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 999;
-        }
-        .toast.show { transform: translateX(0); }
-
-    </style>
+footer{background:#fff;border-top:1px solid var(--line);padding:28px 0 40px;font-size:.78rem;color:var(--muted)}
+footer p+p{margin-top:10px}
+footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+</style>
 </head>
 <body>
 
-    <div class="toast" id="toast">
-        <i class="fa-solid fa-gift" style="color: #ff4d4d;"></i>
-        <span id="toast-text">User claimed reward</span>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Reward<span>Deals</span></div>
+    <small>Must be 18+ to participate</small>
+  </div>
+</header>
+
+<main>
+<!-- HERO + QUIZ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="reward-card" aria-hidden="true">
+      <div class="row">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h8l7 28h31l6-20H15"/><path d="M24 18l2 20M33 18l1 20M42 18l-1 20M17 28h37"/><circle cx="24" cy="49" r="4"/><circle cx="46" cy="49" r="4"/></svg>
+        <div class="amt"><sup>$</sup>500</div>
+      </div>
+      <div class="name">TARGET</div>
+      <div class="disc">Offer not sponsored/endorsed by this brand.</div>
     </div>
 
-    <div class="mobile-container">
-        
-        <div class="live-badge">
-            <div class="blink-dot"></div>
-            LIVE: <span id="viewer-count">1,245</span> viewing
+    <h1>Get $500 towards Target</h1>
+    <p class="lede">Answer 3 quick questions to see if you qualify, then start earning with partner Deals.</p>
+
+    <div class="quiz" id="quiz">
+      <div class="progress" id="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><span id="qcount">Question 1 of 3</span></div>
+
+      <div class="step" id="s1">
+        <p class="q">Do you shop at Target?</p>
+        <div class="opts">
+          <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes</b></button>
+          <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>No</b></button>
         </div>
+      </div>
 
-        <div class="gift-card-img">
-            <div class="logo-text"><i class="fa-solid fa-star"></i> HONEST REWARDS</div>
-            <i class="fa-solid fa-cart-shopping card-icon"></i>
-            <div class="price-tag">$500</div>
+      <div class="step" id="s2" hidden>
+        <p class="q">Are you 18 years or older?</p>
+        <div class="opts">
+          <button class="opt" data-next="s3"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes</b></button>
+          <button class="opt" data-next="under18"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>No</b></button>
         </div>
+      </div>
 
-        <h1>Target Gift Card</h1>
-        <p class="subtitle">Complete the steps below to unlock your shopping spree</p>
-
-        <div class="info-card">
-            <div class="card-header">Quick Start Guide</div>
-            <div class="list-item">
-                <div class="icon-check"><i class="fa-solid fa-check"></i></div>
-                <div class="text-content"><h4>Complete 4-5 deals</h4><p>More deals, bigger reward</p></div>
-            </div>
-            <div class="list-item">
-                <div class="icon-check"><i class="fa-solid fa-check"></i></div>
-                <div class="text-content"><h4>Enter a valid email</h4><p>For instant code delivery</p></div>
-            </div>
-            <div class="list-item">
-                <div class="icon-check"><i class="fa-solid fa-check"></i></div>
-                <div class="text-content"><h4>Must be 18 years or older</h4><p>Required to participate</p></div>
-            </div>
+      <div class="step" id="s3" hidden>
+        <p class="q">Are you ready to try partner Deals?</p>
+        <div class="opts">
+          <button class="opt" data-next="email"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes, let's go</b></button>
+          <button class="opt" data-next="email"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>Tell me more first</b></button>
         </div>
+      </div>
 
-        <div class="info-card">
-            <div class="card-header">Common Questions</div>
-            
-            <div class="question-item" onclick="toggleAnswer(this)">
-                <div class="q-header">
-                    <span>How long do the deals take?</span>
-                    <i class="fa-solid fa-plus"></i>
-                </div>
-                <div class="q-answer">
-                    Usually 15-30 minutes. You need to complete the required number of deals to verify your status.
-                </div>
-            </div>
+      <form class="step email-form" id="email" hidden novalidate>
+        <label for="emailInput">Enter your email to continue</label>
+        <p class="hint">We'll use it to set up your account and send your reward details.</p>
+        <input class="field" id="emailInput" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="emailErr">
+        <p class="err" id="emailErr" role="alert"></p>
+        <button class="btn" type="submit">Continue</button>
+        <p class="consent">By continuing you confirm you are 18+ and agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</p>
+      </form>
 
-            <div class="question-item" onclick="toggleAnswer(this)">
-                <div class="q-header">
-                    <span>What kind of deals are included?</span>
-                    <i class="fa-solid fa-plus"></i>
-                </div>
-                <div class="q-answer">
-                    Free trials, app installs, surveys, and deals.
-                </div>
-            </div>
-        </div>
-
+      <div class="step under18" id="under18" hidden>
+        <p class="q">Sorry, this program is for adults only.</p>
+        <p>You must be 18 or older to take part. Thanks for stopping by.</p>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="sticky-footer">
-        <button class="claim-btn" onclick="window.location.href='https://offertrk.org/cl/i/34jvrm'">Claim $500 Now</button>
+<!-- DEALS -->
+<section class="block" id="how">
+  <div class="wrap">
+    <h2>We've got Deals you will love!</h2>
+    <p>Discover our partner Deals such as mobile games and apps, free trials and many more! Complete the required number of Deals to earn your Reward.</p>
+    <ul class="deals-list">
+      <li><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><div><strong>Mobile games and apps</strong><span>Install and try partner apps.</span></div></li>
+      <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Free trials</strong><span>Sign up for partner trials. Cancel any time before billing if you don't want to keep one.</span></div></li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg><div><strong>Surveys and more</strong><span>New Deals are added regularly.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- REWARD LEVELS -->
+<section class="block" id="rewards">
+  <div class="wrap">
+    <h2>Reward levels</h2>
+    <p>The more Deals you complete, the higher your reward. Here is what each level requires.</p>
+    <div class="table-shell">
+      <table>
+        <thead><tr><th>Level #</th><th class="rv">Reward value</th><th>Total Deals required to claim reward</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="rv">--</td><td>--</td></tr>
+          <tr><td>2</td><td class="rv">$5<sup>3</sup></td><td>2</td></tr>
+          <tr><td>3</td><td class="rv">$100<sup>4</sup></td><td>5</td></tr>
+          <tr><td>4</td><td class="rv">$250<sup>5</sup></td><td>10</td></tr>
+          <tr class="hl"><td>5</td><td class="rv">$500</td><td>15</td></tr>
+          <tr><td>5</td><td class="rv">$750</td><td>20</td></tr>
+          <tr><td>5</td><td class="rv">$1000<sup>6</sup></td><td>25</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="fine">The $500 reward requires 15 completed Deals. Superscript numbers refer to the program terms. Deal availability and completion time vary.</p>
+  </div>
+</section>
 
-    <script>
-        // --- FAQ TOGGLE LOGIC ---
-        function toggleAnswer(element) {
-            element.classList.toggle('active');
-        }
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <details><summary>How many Deals do I need to complete?</summary><p>It depends on the reward level. The $500 reward requires 15 completed Deals. See the reward levels table above.</p></details>
+    <details><summary>How long do Deals take?</summary><p>It varies by Deal. Some take a few minutes and others, like trials or app milestones, can take longer.</p></details>
+    <details><summary>What kinds of Deals are included?</summary><p>Mobile games and apps, free trials, surveys and more from our partners.</p></details>
+    <details><summary>Do I have to pay anything?</summary><p>You don't pay to join. Some Deals may involve a purchase or a paid subscription after a trial. Read each Deal's details before you start and only complete the ones you're comfortable with.</p></details>
+    <details><summary>Is this affiliated with Target?</summary><p>No. This offer is not sponsored or endorsed by Target. Target and its logo are trademarks of their respective owner.</p></details>
+  </div>
+</section>
 
-        // --- NAMES FOR NOTIFICATIONS ---
-        const names = [
-            "Jordan S.", "Mikey P.", "Sarah J.", "BigMike", 
-            "Emily R.", "David K.", "Jess W.", "Chris B.", "Mandy",
-            "Latoya J.", "Maria G.", "Bella C.", "Sophie L.", 
-            "Ethan M.", "Liam N.", "Ava K.", "Noah J.", "Mason F.", 
-            "Mia H.", "Charlie Z.", "Amy C.", "James V.", "Harper B.", "Jason D."
-        ];
+<!-- BOTTOM CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to get started?</h2>
+    <p style="color:var(--muted)">Check your eligibility and see your first Deals.</p>
+    <a class="btn" href="https://appcomplete.org/cl/i/34jvrm">Get a Quick Start</a>
+  </div>
+</section>
+</main>
 
-        // --- VIEWER COUNT FLUCTUATION ---
-        const viewerCountEl = document.getElementById('viewer-count');
-        let viewers = 1245;
+<footer>
+  <div class="wrap">
+    <p><strong>Disclosure:</strong> This offer is not sponsored or endorsed by Target. Target is a trademark of its respective owner. Rewards are earned by completing the required number of partner Deals. Participants must be 18 or older. Reward availability, Deal requirements and eligibility are subject to the program terms.</p>
+    <p>Some Deals may require a purchase, subscription or personal information. Review each Deal before you start.</p>
+    <nav><a href="#terms" id="terms">Terms</a><a href="#privacy" id="privacy">Privacy Policy</a><a href="mailto:support@yourdomain.com">Contact</a></nav>
+    <p>&copy; <span id="yr"></span> RewardDeals. All rights reserved.</p>
+  </div>
+</footer>
 
-        setInterval(() => {
-            const change = Math.floor(Math.random() * 15) - 5; 
-            viewers += change;
-            viewerCountEl.innerText = viewers.toLocaleString();
-        }, 3000);
+<script>
+(function(){
+  // ===== CONFIG =====
+  var OFFER_URL = 'https://appcomplete.org/cl/i/34jvrm';
+  var PASS_EMAIL_PARAM = 'email'; // set to '' to NOT append the email to the URL
+  // ==================
 
-        // --- POPUP NOTIFICATION (Toast) ---
-        function showToast() {
-            const toast = document.getElementById('toast');
-            const toastText = document.getElementById('toast-text');
-            const cities = ["NY", "CA", "TX", "FL", "OH", "IL", "GA", "WA", "AZ"];
-            const city = cities[Math.floor(Math.random() * cities.length)];
-            const user = names[Math.floor(Math.random() * names.length)].split(' ')[0];
-            
-            toastText.innerHTML = `<strong>${user}</strong> (from ${city}) claimed <strong>$500</strong>`;
-            
-            toast.classList.add('show');
-            setTimeout(() => { toast.classList.remove('show'); }, 4000);
-        }
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-        setInterval(showToast, 7000);
-    </script>
+  var steps = ['s1','s2','s3'];
+  var bars = document.querySelectorAll('#progress i');
+  var qcount = document.getElementById('qcount');
+  var progress = document.getElementById('progress');
+
+  function show(id){
+    document.querySelectorAll('.step').forEach(function(s){ s.hidden = (s.id !== id); });
+    var idx = steps.indexOf(id);
+    if(idx === -1){
+      bars.forEach(function(b){ b.classList.add('on'); });
+      qcount.textContent = id === 'email' ? 'Almost done' : '';
+      if(id === 'under18') progress.style.display = 'none';
+    } else {
+      bars.forEach(function(b,i){ b.classList.toggle('on', i <= idx); });
+      qcount.textContent = 'Question ' + (idx+1) + ' of 3';
+    }
+    if(id === 'email') setTimeout(function(){ document.getElementById('emailInput').focus(); }, 50);
+  }
+
+  document.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){ show(b.dataset.next); });
+  });
+
+  var form = document.getElementById('email');
+  var input = document.getElementById('emailInput');
+  var err = document.getElementById('emailErr');
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = input.value.trim();
+    if(!re.test(v)){
+      input.setAttribute('aria-invalid','true');
+      err.textContent = 'Please enter a valid email address.';
+      input.focus();
+      return;
+    }
+    input.removeAttribute('aria-invalid');
+    err.textContent = '';
+    var url = OFFER_URL;
+    if(PASS_EMAIL_PARAM){
+      url += (url.indexOf('?') > -1 ? '&' : '?') + encodeURIComponent(PASS_EMAIL_PARAM) + '=' + encodeURIComponent(v);
+    }
+    window.location.href = url;
+  });
+  input.addEventListener('input', function(){ input.removeAttribute('aria-invalid'); err.textContent = ''; });
+})();
+</script>
 </body>
 </html>
