@@ -110,52 +110,6 @@ details p{padding:0 16px 16px;font-size:.92rem}
 footer{background:#fff;border-top:1px solid var(--line);padding:28px 0 40px;font-size:.78rem;color:var(--muted)}
 footer p+p{margin-top:10px}
 footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
-
-/* ===== FAKE NOTIFICATIONS STYLES ===== */
-#notify-container {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  pointer-events: none;
-}
-.notify-toast {
-  background: var(--white);
-  border-left: 4px solid var(--red);
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  padding: 12px 16px;
-  font-size: 0.9rem;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  animation: slideIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, fadeOut 0.4s ease-in 3.5s forwards;
-  opacity: 0;
-  max-width: 300px;
-}
-.notify-toast svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: #22c55e;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex: none;
-}
-.notify-toast b { font-weight: 800; color: var(--ink); }
-@keyframes slideIn {
-  0% { opacity: 0; transform: translateX(-120%); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeOut {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(15px); }
-}
 </style>
 </head>
 <body>
@@ -373,44 +327,6 @@ footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
     var first = document.querySelector('.step:not([hidden]) .opt, .step:not([hidden]) input');
     if(first) setTimeout(function(){ first.focus({preventScroll:true}); }, 400);
   });
-
-  // ===== FAKE NOTIFICATIONS SYSTEM =====
-  var notifyContainer = document.createElement('div');
-  notifyContainer.id = 'notify-container';
-  document.body.appendChild(notifyContainer);
-
-  var firstNames = ['Christopher', 'John', 'Joseph', 'William', 'Robert', 'Richard', 'Thomas', 'Charles', 'Steven', 'Kevin', 'Brian', 'George', 'Edward', 'Ronald', 'Timothy', 'Jason', 'Jeffrey', 'Ryan', 'Jacob', 'Gary', 'Nicholas', 'Eric', 'Jonathan', 'Stephen', 'Larry', 'Scott', 'Frank', 'Justin', 'Brandon', 'Raymond', 'Gregory', 'Samuel', 'Benjamin', 'Patrick', 'Jack', 'Alexander', 'Dennis', 'Jerry', 'Tyler', 'Aaron', 'Jose', 'Henry', 'Adam', 'Douglas', 'Nathan', 'Peter', 'Zachary', 'Kyle', 'Walter', 'Ethan', 'Mary', 'Patricia', 'Linda', 'Barbara', 'Elizabeth', 'Jennifer', 'Maria', 'Susan', 'Margaret', 'Dorothy', 'Lisa', 'Nancy', 'Karen', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol', 'Ruth', 'Sharon', 'Laura', 'Kimberly', 'Deborah', 'Shirley', 'Cynthia', 'Kathleen', 'Amy', 'Anna', 'Rebecca', 'Virginia', 'Pamela', 'Martha', 'Debra', 'Stephanie', 'Carolyn', 'Christine', 'Marie', 'Janet', 'Catherine', 'Frances', 'Ann', 'Joyce', 'Diane', 'Alice', 'Julie', 'Heather', 'Teresa', 'Doris', 'Gloria', 'Evelyn'];
-  var lastInitials = ['M.','T.','R.','C.','K.','W.','B.','P.','L.','S.','D.','F.','G.','H.'];
-  var actions = ['just claimed a $500 Target reward!', 'is on step 3 of their reward!', 'qualified for a Target reward!', 'just started earning their reward!'];
-
-  function triggerFakeNotification() {
-    var name = firstNames[Math.floor(Math.random() * firstNames.length)] + ' ' + lastInitials[Math.floor(Math.random() * lastInitials.length)];
-    var action = actions[Math.floor(Math.random() * actions.length)];
-
-    var toast = document.createElement('div');
-    toast.className = 'notify-toast';
-    toast.innerHTML = '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
-                      '<div><b>' + name + '</b> ' + action + '</div>';
-
-    notifyContainer.appendChild(toast);
-
-    // Remove toast from DOM after animation completes (approx 4 seconds)
-    setTimeout(function() {
-      if(toast.parentNode) toast.parentNode.removeChild(toast);
-    }, 4000);
-
-    // 40% chance of an extremely fast popup (10ms - 400ms)
-    // 60% chance of a longer pause (2000ms - 3500ms)
-    var isFast = Math.random() < 0.4;
-    var nextDelay = isFast 
-        ? Math.floor(Math.random() * 390) + 10 
-        : Math.floor(Math.random() * 1500) + 2000;
-
-    setTimeout(triggerFakeNotification, nextDelay);
-  }
-
-  // Start the notification loop 1.5 seconds after page load
-  setTimeout(triggerFakeNotification, 1500);
 })();
 </script>
 </body>
