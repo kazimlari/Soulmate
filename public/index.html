@@ -3,22 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get $500 towards Target</title>
-<meta name="description" content="Complete partner Deals to earn a $500 Target reward. Offer not sponsored or endorsed by Target.">
+<title>Get $500 towards Little Caesars 🎃</title>
+<meta name="description" content="Complete partner Deals to earn a $500 Little Caesars reward. Offer not sponsored or endorsed by Little Caesars.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --red:#d3112d; --red-dark:#a80d24; --ink:#1b1b1f; --muted:#5f6068;
-  --line:#e6e4e1; --paper:#faf8f6; --white:#fff; --gold:#f5c542; --panel:#26262a;
-  --focus:#1a5fd0;
+  /* Halloween Color Palette */
+  --red:#ff6600;      /* Glowing Orange */
+  --red-dark:#cc5200; /* Dark Orange */
+  --ink:#f0f0f5;      /* Off-white text */
+  --muted:#a6a6b3;    /* Ghostly gray */
+  --line:#3a2a47;     /* Dark purple lines */
+  --paper:#0f0914;    /* Midnight background */
+  --white:#1b1124;    /* Dark purple card backgrounds */
+  --gold:#ffb700;     /* Gold */
+  --panel:#261833;    /* Panel background */
+  --focus:#ff6600;    /* Orange focus */
 }
 @media (prefers-color-scheme: dark){ :root{} }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{font-family:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top, #26163b 0%, var(--paper) 60%);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .wrap{max-width:640px;margin:0 auto;padding:0 20px}
@@ -26,72 +34,73 @@ a{color:inherit}
 /* top bar */
 .top{background:var(--white);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand{font-family:'Creepster', system-ui, sans-serif; font-weight:400;font-size:1.6rem;letter-spacing:1px}
 .brand span{color:var(--red)}
 .top small{color:var(--muted);font-size:.78rem}
 
 /* hero */
-.hero{background:var(--white);padding:28px 0 36px;border-bottom:1px solid var(--line)}
-.reward-card{width:210px;margin:0 auto 22px;background:var(--red);color:#fff;border-radius:12px;padding:14px 16px 0;box-shadow:0 14px 30px -12px rgba(211,17,45,.55);overflow:hidden}
-.reward-card .row{display:flex;align-items:center;gap:10px;justify-content:center}
-.reward-card svg{width:52px;height:52px;flex:none}
+.hero{background:transparent;padding:28px 0 36px;border-bottom:1px solid var(--line)}
+.reward-card{width:210px;margin:0 auto 22px;background:var(--red);color:#000;border-radius:12px;padding:14px 16px 0;box-shadow:0 14px 30px -12px rgba(255,102,0,.7);overflow:hidden; position:relative;}
+.reward-card::before {content:"🕸️"; position:absolute; top:-10px; left:-10px; font-size:3rem; opacity:0.3;}
+.reward-card .row{display:flex;align-items:center;gap:10px;justify-content:center; position:relative; z-index:2;}
+.reward-card svg{width:52px;height:52px;flex:none;stroke:#000}
 .reward-card .amt{font-size:3rem;font-weight:700;line-height:1;letter-spacing:-.03em}
 .reward-card .amt sup{font-size:1.4rem;vertical-align:top;position:relative;top:4px;margin-right:2px}
-.reward-card .name{font-weight:800;letter-spacing:.06em;font-size:1.3rem;text-align:center;margin-top:4px;padding-bottom:10px}
-.reward-card .disc{background:#d9d9dc;color:#222;font-size:.6rem;font-weight:700;text-align:center;padding:3px 4px;margin:0 -16px}
-h1{font-size:clamp(1.9rem,6.5vw,2.6rem);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-align:center}
+.reward-card .name{font-family:'Creepster', system-ui, sans-serif; letter-spacing:2px;font-size:1.5rem;text-align:center;margin-top:4px;padding-bottom:10px; position:relative; z-index:2;}
+.reward-card .disc{background:#111;color:#ff6600;font-size:.6rem;font-weight:700;text-align:center;padding:3px 4px;margin:0 -16px; position:relative; z-index:2;}
+h1{font-family:'Creepster', system-ui, sans-serif; font-size:clamp(2.2rem,6.5vw,3rem);line-height:1.1;font-weight:400;letter-spacing:1px;text-align:center;text-shadow: 0 0 15px rgba(255,102,0,0.4); color:#fff;}
 .lede{text-align:center;color:var(--muted);margin:10px auto 24px;max-width:46ch}
 
 /* quiz */
-.quiz{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 20px 24px;box-shadow:0 8px 24px -16px rgba(0,0,0,.25)}
+.quiz{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 20px 24px;box-shadow:0 8px 30px -10px rgba(0,0,0,.6)}
 .progress{display:flex;align-items:center;gap:8px;margin-bottom:20px}
-.progress i{flex:1;height:5px;border-radius:3px;background:#dde0e4;transition:background .25s}
-.progress i.on{background:#1565d8}
+.progress i{flex:1;height:5px;border-radius:3px;background:#352545;transition:background .25s}
+.progress i.on{background:var(--red); box-shadow:0 0 8px rgba(255,102,0,0.6);}
 .progress span{font-size:.8rem;color:var(--muted);white-space:nowrap;margin-left:4px}
 .q{font-size:1.15rem;font-weight:700;text-align:center;margin-bottom:18px}
 .opts{display:grid;gap:12px}
-.opt{display:flex;align-items:center;gap:14px;width:100%;padding:0 22px;height:58px;border-radius:30px;border:1px solid #d6d9e6;background:#f2f4fc;font:inherit;font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .1s}
-.opt:hover{background:#e7ebfa;border-color:#b9c2ec}
+.opt{display:flex;align-items:center;gap:14px;width:100%;padding:0 22px;height:58px;border-radius:30px;border:1px solid #4a3660;background:#2a1a38;font:inherit;font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .1s,box-shadow .15s}
+.opt:hover{background:#3b244d;border-color:var(--red);box-shadow:0 0 10px rgba(255,102,0,0.2)}
 .opt:active{transform:scale(.99)}
-.opt svg{width:26px;height:26px;stroke:#1565d8;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.opt svg{width:26px;height:26px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .opt b{flex:1;text-align:center;margin-right:40px}
 .step[hidden]{display:none}
 
 /* email step */
 .email-form label{display:block;font-weight:700;text-align:center;font-size:1.15rem;margin-bottom:6px}
 .email-form .hint{text-align:center;color:var(--muted);font-size:.9rem;margin-bottom:16px}
-.field{width:100%;height:54px;border:1.5px solid #c9ccd3;border-radius:12px;padding:0 16px;font:inherit;font-size:1rem;background:#fff}
-.field:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(26,95,208,.2)}
+.field{width:100%;height:54px;border:1.5px solid #4a3660;border-radius:12px;padding:0 16px;font:inherit;font-size:1rem;background:#140c1d;color:var(--ink)}
+.field:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(255,102,0,.2)}
 .field[aria-invalid="true"]{border-color:var(--red)}
 .err{color:var(--red-dark);font-size:.85rem;margin-top:6px;min-height:1.2em}
-.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--red);color:#fff;font:inherit;font-weight:800;font-size:1.08rem;padding:16px;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
-.btn:hover{background:var(--red-dark)}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--red);color:#000;font:inherit;font-weight:800;font-size:1.08rem;padding:16px;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s, box-shadow .15s}
+.btn:hover{background:var(--red-dark);box-shadow:0 0 15px rgba(255,102,0,0.5)}
 .consent{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center}
 .consent a{color:var(--muted)}
 .under18{text-align:center;padding:10px 0}
 .under18 p{color:var(--muted);margin-top:8px}
 
 /* sections */
-section.block{padding:44px 0;border-bottom:1px solid var(--line)}
-h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px}
+section.block{padding:44px 0;border-bottom:1px solid var(--line);background:transparent}
+h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px;color:#fff;}
 .block p{color:var(--muted)}
 .deals-list{list-style:none;margin-top:18px;display:grid;gap:12px}
-.deals-list li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.deals-list li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
 .deals-list svg{width:22px;height:22px;flex:none;margin-top:2px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.deals-list strong{display:block;font-size:.95rem}
+.deals-list strong{display:block;font-size:.95rem;color:var(--ink)}
 .deals-list span{font-size:.88rem;color:var(--muted)}
 
 /* reward table */
-.table-shell{background:#161618;border-radius:18px;padding:18px;margin-top:20px}
+.table-shell{background:#0a050d;border-radius:18px;padding:18px;margin-top:20px;border:1px solid var(--line)}
 table{width:100%;border-collapse:separate;border-spacing:0;color:#eee;text-align:center;font-style:italic;font-weight:600}
-th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:16px 6px;line-height:1.35;border-bottom:1px solid #3b3b40;background:var(--panel)}
+th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:16px 6px;line-height:1.35;border-bottom:1px solid #1a0f24;background:var(--panel)}
 td{padding:11px 6px;font-size:1rem;background:var(--panel)}
 th:first-child{border-top-left-radius:12px}th:last-child{border-top-right-radius:12px}
 tr:last-child td:first-child{border-bottom-left-radius:12px}tr:last-child td:last-child{border-bottom-right-radius:12px}
 th.rv,td.rv{border-left:2px solid var(--gold);border-right:2px solid var(--gold);color:#fff;font-weight:800}
 th.rv{border-top:2px solid var(--gold);border-top-left-radius:12px;border-top-right-radius:12px}
 tr:last-child td.rv{border-bottom:2px solid var(--gold);border-bottom-left-radius:12px;border-bottom-right-radius:12px}
-tr.hl td{background:#33333a}
+tr.hl td{background:#3b244d; color:var(--red);}
 td sup{font-size:.6em;font-weight:600;opacity:.8}
 .fine{font-size:.78rem;color:var(--muted);margin-top:14px}
 
@@ -99,15 +108,15 @@ td sup{font-size:.6em;font-weight:600;opacity:.8}
 details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-top:10px}
 summary{cursor:pointer;list-style:none;padding:15px 16px;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:center}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--red);transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 16px 16px;font-size:.92rem}
+summary::after{content:"🦇";font-size:1.1rem;line-height:1;transition:transform .2s; filter: grayscale(100%);}
+details[open] summary::after{transform:rotate(180deg); filter: grayscale(0%);}
+details p{padding:0 16px 16px;font-size:.92rem;color:var(--muted)}
 
 /* cta band */
-.cta-band{padding:44px 0 36px;text-align:center}
+.cta-band{padding:44px 0 36px;text-align:center;background:transparent}
 .cta-band .btn{max-width:360px;margin:18px auto 0}
 
-footer{background:#fff;border-top:1px solid var(--line);padding:28px 0 40px;font-size:.78rem;color:var(--muted)}
+footer{background:#0a050d;border-top:1px solid var(--line);padding:28px 0 40px;font-size:.78rem;color:var(--muted)}
 footer p+p{margin-top:10px}
 footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
 </style>
@@ -116,7 +125,7 @@ footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
 
 <header class="top">
   <div class="wrap">
-    <div class="brand">Reward<span>Deals</span></div>
+    <div class="brand">Reward<span>Deals</span> 👻</div>
     <small>Must be 18+ to participate</small>
   </div>
 </header>
@@ -127,21 +136,22 @@ footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <div class="reward-card" aria-hidden="true">
       <div class="row">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h8l7 28h31l6-20H15"/><path d="M24 18l2 20M33 18l1 20M42 18l-1 20M17 28h37"/><circle cx="24" cy="49" r="4"/><circle cx="46" cy="49" r="4"/></svg>
+        <!-- Kept original SVG structure but darkened strokes -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h8l7 28h31l6-20H15"/><path d="M24 18l2 20M33 18l1 20M42 18l-1 20M17 28h37"/><circle cx="24" cy="49" r="4"/><circle cx="46" cy="49" r="4"/></svg>
         <div class="amt"><sup>$</sup>500</div>
       </div>
-      <div class="name">TARGET</div>
+      <div class="name">LITTLE CAESARS</div>
       <div class="disc">Offer not sponsored/endorsed by this brand.</div>
     </div>
 
-    <h1>Get $500 towards Target</h1>
+    <h1>Get $500 towards Little Caesars 🍕🦇</h1>
     <p class="lede">Answer 3 quick questions to see if you qualify, then start earning with partner Deals.</p>
 
     <div class="quiz" id="quiz">
       <div class="progress" id="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><span id="qcount">Question 1 of 3</span></div>
 
       <div class="step" id="s1">
-        <p class="q">Do you shop at Target?</p>
+        <p class="q">Do you eat at Little Caesars?</p>
         <div class="opts">
           <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes</b></button>
           <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>No</b></button>
@@ -249,7 +259,7 @@ footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
 <!-- BOTTOM CTA -->
 <section class="cta-band">
   <div class="wrap">
-    <h2>Ready to get started?</h2>
+    <h2>Ready to get started? 🎃</h2>
     <p style="color:var(--muted)">Check your eligibility and see your first Deals.</p>
     <a class="btn" href="#quiz" id="quickStart">Get a Quick Start</a>
   </div>
@@ -258,7 +268,7 @@ footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <p><strong>Disclosure:</strong> This offer is not sponsored or endorsed by Target. Target is a trademark of its respective owner. Rewards are earned by completing the required number of partner Deals. Participants must be 18 or older. Reward availability, Deal requirements and eligibility are subject to the program terms.</p>
+    <p><strong>Disclosure:</strong> This offer is not sponsored or endorsed by Little Caesars. Little Caesars is a trademark of its respective owner. Rewards are earned by completing the required number of partner Deals. Participants must be 18 or older. Reward availability, Deal requirements and eligibility are subject to the program terms.</p>
     <p>Some Deals may require a purchase, subscription or personal information. Review each Deal before you start.</p>
     <nav><a href="#terms" id="terms">Terms</a><a href="#privacy" id="privacy">Privacy Policy</a><a href="mailto:support@yourdomain.com">Contact</a></nav>
     <p>&copy; <span id="yr"></span> RewardDeals. All rights reserved.</p>
