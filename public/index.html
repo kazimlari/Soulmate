@@ -1,336 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get $500 towards Texas Roadhouse</title>
-<meta name="description" content="Complete partner Deals to earn a $500 Texas Roadhouse reward. Offer not sponsored or endorsed by Texas Roadhouse.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hobby Lobby Christmas Shopping Method (Free PDF)</title>
 <style>
-:root{
-  --red:#c8102e; --red-dark:#9e0c22; --ink:#1b1b1f; --muted:#5f6068;
-  --line:#e6e4e1; --paper:#faf8f6; --white:#fff; --gold:#f5c542; --panel:#26262a;
-  --focus:#1a5fd0;
-}
-@media (prefers-color-scheme: dark){ :root{} }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{font-family:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.wrap{max-width:640px;margin:0 auto;padding:0 20px}
-
-/* top bar */
-.top{background:var(--white);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
-.brand span{color:var(--red)}
-.top small{color:var(--muted);font-size:.78rem}
-
-/* hero */
-.hero{background:var(--white);padding:28px 0 36px;border-bottom:1px solid var(--line)}
-.reward-card{width:220px;margin:0 auto 22px;background:var(--red);color:#fff;border-radius:12px;padding:14px 16px 0;box-shadow:0 14px 30px -12px rgba(200,16,46,.55);overflow:hidden}
-.reward-card .row{display:flex;align-items:center;gap:10px;justify-content:center}
-.reward-card svg{width:50px;height:50px;flex:none}
-.reward-card .amt{font-size:3rem;font-weight:700;line-height:1;letter-spacing:-.03em}
-.reward-card .amt sup{font-size:1.4rem;vertical-align:top;position:relative;top:4px;margin-right:2px}
-.reward-card .name{font-weight:800;letter-spacing:.04em;font-size:1.12rem;text-align:center;margin-top:6px;padding-bottom:10px;white-space:nowrap}
-.reward-card .disc{background:#d9d9dc;color:#222;font-size:.6rem;font-weight:700;text-align:center;padding:3px 4px;margin:0 -16px}
-h1{font-size:clamp(1.9rem,6.5vw,2.6rem);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-align:center}
-.lede{text-align:center;color:var(--muted);margin:10px auto 24px;max-width:46ch}
-
-/* quiz */
-.quiz{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 20px 24px;box-shadow:0 8px 24px -16px rgba(0,0,0,.25)}
-.progress{display:flex;align-items:center;gap:8px;margin-bottom:20px}
-.progress i{flex:1;height:5px;border-radius:3px;background:#dde0e4;transition:background .25s}
-.progress i.on{background:#1565d8}
-.progress span{font-size:.8rem;color:var(--muted);white-space:nowrap;margin-left:4px}
-.q{font-size:1.15rem;font-weight:700;text-align:center;margin-bottom:18px}
-.opts{display:grid;gap:12px}
-.opt{display:flex;align-items:center;gap:14px;width:100%;padding:0 22px;height:58px;border-radius:30px;border:1px solid #d6d9e6;background:#f2f4fc;font:inherit;font-size:1.05rem;font-weight:700;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .1s}
-.opt:hover{background:#e7ebfa;border-color:#b9c2ec}
-.opt:active{transform:scale(.99)}
-.opt svg{width:26px;height:26px;stroke:#1565d8;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.opt b{flex:1;text-align:center;margin-right:40px}
-.step[hidden]{display:none}
-
-/* email step */
-.email-form label{display:block;font-weight:700;text-align:center;font-size:1.15rem;margin-bottom:6px}
-.email-form .hint{text-align:center;color:var(--muted);font-size:.9rem;margin-bottom:16px}
-.field{width:100%;height:54px;border:1.5px solid #c9ccd3;border-radius:12px;padding:0 16px;font:inherit;font-size:1rem;background:#fff}
-.field:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(26,95,208,.2)}
-.field[aria-invalid="true"]{border-color:var(--red)}
-.err{color:var(--red-dark);font-size:.85rem;margin-top:6px;min-height:1.2em}
-.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--red);color:#fff;font:inherit;font-weight:800;font-size:1.08rem;padding:16px;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
-.btn:hover{background:var(--red-dark)}
-.consent{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center}
-.consent a{color:var(--muted)}
-.under18{text-align:center;padding:10px 0}
-.under18 p{color:var(--muted);margin-top:8px}
-
-/* sections */
-section.block{padding:44px 0;border-bottom:1px solid var(--line)}
-h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px}
-.block p{color:var(--muted)}
-.deals-list{list-style:none;margin-top:18px;display:grid;gap:12px}
-.deals-list li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.deals-list svg{width:22px;height:22px;flex:none;margin-top:2px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.deals-list strong{display:block;font-size:.95rem}
-.deals-list span{font-size:.88rem;color:var(--muted)}
-
-/* reward table */
-.table-shell{background:#161618;border-radius:18px;padding:18px;margin-top:20px}
-table{width:100%;border-collapse:separate;border-spacing:0;color:#eee;text-align:center;font-style:italic;font-weight:600}
-th{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:16px 6px;line-height:1.35;border-bottom:1px solid #3b3b40;background:var(--panel)}
-td{padding:11px 6px;font-size:1rem;background:var(--panel)}
-th:first-child{border-top-left-radius:12px}th:last-child{border-top-right-radius:12px}
-tr:last-child td:first-child{border-bottom-left-radius:12px}tr:last-child td:last-child{border-bottom-right-radius:12px}
-th.rv,td.rv{border-left:2px solid var(--gold);border-right:2px solid var(--gold);color:#fff;font-weight:800}
-th.rv{border-top:2px solid var(--gold);border-top-left-radius:12px;border-top-right-radius:12px}
-tr:last-child td.rv{border-bottom:2px solid var(--gold);border-bottom-left-radius:12px;border-bottom-right-radius:12px}
-tr.hl td{background:#33333a}
-td sup{font-size:.6em;font-weight:600;opacity:.8}
-.fine{font-size:.78rem;color:var(--muted);margin-top:14px}
-
-/* faq */
-details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-top:10px}
-summary{cursor:pointer;list-style:none;padding:15px 16px;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--red);transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 16px 16px;font-size:.92rem}
-
-/* cta band */
-.cta-band{padding:44px 0 36px;text-align:center}
-.cta-band .btn{max-width:360px;margin:18px auto 0}
-
-footer{background:#fff;border-top:1px solid var(--line);padding:28px 0 40px;font-size:.78rem;color:var(--muted)}
-footer p+p{margin-top:10px}
-footer nav{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+:root{--bg:#0e0e0e;--card:#1b1b1b;--gold:#ffd54a;--ink:#fff;--muted:#b5b5b5;--line:#2e2e2e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.hero{padding:48px 0 32px;background:radial-gradient(circle at 80% 0,#3a2f08 0,transparent 55%)}
+.tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px;margin-bottom:16px}
+h1{font:italic 900 clamp(34px,9vw,60px)/1.05 system-ui,"Arial Black",Impact,sans-serif;margin:0 0 16px;letter-spacing:-.02em}
+h1 em{font-style:inherit;color:var(--gold)}
+h2{font:italic 900 clamp(26px,6vw,36px)/1.1 system-ui,"Arial Black",sans-serif;margin:0 0 14px}
+.sub{font-size:19px;color:var(--muted);max-width:30em}
+.cta{display:block;text-align:center;background:var(--gold);color:#111;font-weight:900;font-size:19px;text-decoration:none;padding:18px 22px;border-radius:12px;margin:24px 0 8px;box-shadow:0 8px 0 #9c7f12;transition:transform .1s,box-shadow .1s}
+.cta:active{transform:translateY(6px);box-shadow:0 2px 0 #9c7f12}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.fine{font-size:13px;color:var(--muted);text-align:center;margin:10px 0 0}
+.shot{margin:36px 0 0;transform:rotate(-2deg);border:2px solid var(--gold);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(255,213,74,.15)}
+.shot img{display:block;width:100%;height:auto}
+section{padding:44px 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.chip{font:inherit;font-weight:800;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:12px 18px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--gold);color:#111;border-color:var(--gold)}
+.chip:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.out{background:var(--card);border-radius:14px;padding:22px;border-left:6px solid var(--gold);font-size:20px}
+.out b{color:var(--gold);font-size:34px;display:block;line-height:1.1}
+.steps{display:grid;gap:14px;margin-top:18px}
+.step{background:var(--card);border-radius:14px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start}
+.n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#111;font-weight:900;display:grid;place-items:center}
+.step p{margin:0;color:var(--muted)}.step strong{color:var(--ink);display:block}
+.list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.list li{background:var(--card);border-radius:10px;padding:14px 16px 14px 46px;position:relative}
+.list li::before{content:"✓";position:absolute;left:16px;color:var(--gold);font-weight:900}
+.good{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:28px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
+<header class="hero"><div class="wrap">
+<span class="tag">FREE PDF · CHRISTMAS SHOPPING</span>
+<h1>I found a way to save on <em>Hobby Lobby</em> Christmas shopping. Now I’m sharing it free.</h1>
+<p class="sub">I discovered this method, used it myself and wrote it all up in a PDF. You get it for free. In return, you complete one quick sponsor deal, which helps me earn some extra income for Christmas.</p>
+<a class="cta" href="https://trkoffer.net/cl/i/34jgqv" rel="sponsored noopener">Get the free PDF</a>
+<p class="fine">Unlocks after one short sponsored offer. I may earn a commission.</p>
+<div class="shot"><a href="https://imgbb.com/"><img src="https://i.ibb.co/9HtrK9Yy/Screenshot-2026-10-14-211503.png" alt="Screenshot 2026 10 14 211503" border="0"></a></div>
+</div></header>
 
-<header class="top">
-  <div class="wrap">
-    <div class="brand">Reward<span>Deals</span></div>
-    <small>Must be 18+ to participate</small>
-  </div>
-</header>
-
-<main>
-<!-- HERO + QUIZ -->
-<div class="hero">
-  <div class="wrap">
-    <div class="reward-card" aria-hidden="true">
-      <div class="row">
-        <!-- Fork and Knife Dining Icon -->
-        <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12v15a5 5 0 0 0 5 5v20M24 12v13M29 12v15a5 5 0 0 1-5 5M45 12v40M45 12c-5 0-7 7-7 13v7h7"/>
-        </svg>
-        <div class="amt"><sup>$</sup>500</div>
-      </div>
-      <div class="name">TEXAS ROADHOUSE</div>
-      <div class="disc">Offer not sponsored/endorsed by this brand.</div>
-    </div>
-
-    <h1>Get $500 towards Texas Roadhouse</h1>
-    <p class="lede">Answer 3 quick questions to see if you qualify, then start earning with partner Deals.</p>
-
-    <div class="quiz" id="quiz">
-      <div class="progress" id="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><span id="qcount">Question 1 of 3</span></div>
-
-      <div class="step" id="s1">
-        <p class="q">Do you dine at Texas Roadhouse?</p>
-        <div class="opts">
-          <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes</b></button>
-          <button class="opt" data-next="s2"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>No</b></button>
-        </div>
-      </div>
-
-      <div class="step" id="s2" hidden>
-        <p class="q">Are you 18 years or older?</p>
-        <div class="opts">
-          <button class="opt" data-next="s3"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes</b></button>
-          <button class="opt" data-next="under18"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>No</b></button>
-        </div>
-      </div>
-
-      <div class="step" id="s3" hidden>
-        <p class="q">Are you ready to try partner Deals?</p>
-        <div class="opts">
-          <button class="opt" data-next="email"><svg viewBox="0 0 24 24"><path d="M7 11v9H3v-9zM7 11l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2l-1 7a2 2 0 0 1-2 2H7"/></svg><b>Yes, let's go</b></button>
-          <button class="opt" data-next="email"><svg viewBox="0 0 24 24"><path d="M7 13V4H3v9zM7 13l4 8a2 2 0 0 0 2-2v-4h6a2 2 0 0 0 2-2l-1-7a2 2 0 0 0-2-2H7"/></svg><b>Tell me more first</b></button>
-        </div>
-      </div>
-
-      <form class="step email-form" id="email" hidden novalidate>
-        <label for="emailInput">Enter your email to continue</label>
-        <p class="hint">We'll use it to set up your account and send your reward details.</p>
-        <input class="field" id="emailInput" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="emailErr">
-        <p class="err" id="emailErr" role="alert"></p>
-        <button class="btn" type="submit">Continue</button>
-        <p class="consent">By continuing you confirm you are 18+ and agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.</p>
-      </form>
-
-      <div class="step under18" id="under18" hidden>
-        <p class="q">Sorry, this program is for adults only.</p>
-        <p>You must be 18 or older to take part. Thanks for stopping by.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- DEALS -->
-<section class="block" id="how">
-  <div class="wrap">
-    <h2>How fast can I get my Reward?</h2>
-    <p>Discover our partner Deals such as mobile games and apps, free trials and many more! Complete the required number of Deals to earn your Reward.</p>
-    <ul class="deals-list">
-      <li>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-        <div>
-          <strong>Complete 4-5 deals</strong>
-          <span>More deals, bigger reward</span>
-        </div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-        <div>
-          <strong>Enter a valid email</strong>
-          <span>For instant code delivery</span>
-        </div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-        <div>
-          <strong>Must be 18 years or older</strong>
-          <span>Required to participate</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+<main class="wrap">
+<section>
+<h2>Tap a reward. See the work.</h2>
+<p class="sub">This is the program’s tier table from my screenshot. Pick a reward to see how many deals it takes.</p>
+<div class="chips" id="chips" role="group" aria-label="Reward tiers"></div>
+<div class="out" id="out" aria-live="polite"></div>
 </section>
 
-<!-- REWARD LEVELS -->
-<section class="block" id="rewards">
-  <div class="wrap">
-    <h2>Check out ways to claim other Rewards!</h2>
-    <p>Complete 25 Deals to claim a $1000 Reward or complete fewer to claim a lesser value Reward. For example: to claim a $5 Reward, complete one Deal from level 1 and one Deal from level 2 for a total of 2 Deals. See below for total # of Deals required to claim Rewards from each level.</p>
-    <div class="table-shell">
-      <table>
-        <thead><tr><th>Level #</th><th class="rv">Reward value</th><th>Total Deals required to claim reward</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td class="rv">--</td><td>--</td></tr>
-          <tr><td>2</td><td class="rv">$5<sup>3</sup></td><td>2</td></tr>
-          <tr><td>3</td><td class="rv">$100<sup>4</sup></td><td>5</td></tr>
-          <tr><td>4</td><td class="rv">$250<sup>5</sup></td><td>10</td></tr>
-          <tr class="hl"><td>5</td><td class="rv">$500</td><td>15</td></tr>
-          <tr><td>5</td><td class="rv">$750</td><td>20</td></tr>
-          <tr><td>5</td><td class="rv">$1000<sup>6</sup></td><td>25</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="fine">The $500 reward requires 15 completed Deals. Superscript numbers refer to the program terms. Deal availability and completion time vary.</p>
-  </div>
+<section>
+<h2>Straight talk</h2>
+<ul class="list">
+<li><strong>It’s free.</strong> The PDF costs you nothing.</li>
+<li><strong>Here’s how I get paid.</strong> The sponsor deal you complete to unlock it earns me a commission. That’s my Christmas fund.</li>
+<li><strong>You can check the proof.</strong> The reward tiers above are from the program’s own site.</li>
+<li><strong>No surprises.</strong> Read each offer’s terms first. Some may involve a paid trial.</li>
+</ul>
 </section>
 
-<!-- FAQ -->
-<section class="block" id="faq">
-  <div class="wrap">
-    <h2>We’ve got Deals you will love!</h2>
-    <details><summary>How many Deals do I need to complete?</summary><p>It depends on the reward level. The $500 reward requires 15 completed Deals. See the reward levels table above.</p></details>
-    <details><summary>How long do Deals take?</summary><p>Usually 15-30 minutes. You need to complete the required number of deals to verify your status.</p></details>
-    <details><summary>What kinds of Deals are included?</summary><p>Mobile games and apps, free trials, surveys and more from our partners.</p></details>
-    <details><summary>Do I have to pay anything?</summary><p>You don't pay to join.</p></details>
-  </div>
-</section>
-
-<!-- BOTTOM CTA -->
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Ready to get started?</h2>
-    <p style="color:var(--muted)">Check your eligibility and see your first Deals.</p>
-    <a class="btn" href="#quiz" id="quickStart">Get a Quick Start</a>
-  </div>
+<section>
+<h2>What’s in the PDF</h2>
+<ul class="list">
+<li>Which tier is worth it for your budget</li>
+<li>How I chose deals and kept track of them</li>
+<li>How I claimed my card</li>
+<li>The mistakes that waste your time</li>
+</ul>
+<a class="cta" href="https://trkoffer.net/cl/i/34jgqv" rel="sponsored noopener">Get the free PDF</a>
+<p class="good">Results vary and aren’t guaranteed.</p>
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p><strong>Disclosure:</strong> This offer is not sponsored or endorsed by Texas Roadhouse. Texas Roadhouse is a trademark of its respective owner. Rewards are earned by completing the required number of partner Deals. Participants must be 18 or older. Reward availability, Deal requirements and eligibility are subject to the program terms.</p>
-    <p>Some Deals may require a purchase, subscription or personal information. Review each Deal before you start.</p>
-    <nav><a href="#terms" id="terms">Terms</a><a href="#privacy" id="privacy">Privacy Policy</a><a href="mailto:support@yourdomain.com">Contact</a></nav>
-    <p>&copy; <span id="yr"></span> RewardDeals. All rights reserved.</p>
-  </div>
-</footer>
+<footer><div class="wrap">Independent page. Not affiliated with Hobby Lobby, any retailer, or the program shown. · <span>your-email@example.com</span></div></footer>
 
 <script>
-(function(){
-  // ===== CONFIG =====
-  var OFFER_URL = 'https://appcomplete.org/cl/i/34jvrm';
-  var PASS_EMAIL_PARAM = 'email'; // set to '' to NOT append the email to the URL
-  // ==================
-
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  var steps = ['s1','s2','s3'];
-  var bars = document.querySelectorAll('#progress i');
-  var qcount = document.getElementById('qcount');
-  var progress = document.getElementById('progress');
-
-  function show(id){
-    document.querySelectorAll('.step').forEach(function(s){ s.hidden = (s.id !== id); });
-    var idx = steps.indexOf(id);
-    if(idx === -1){
-      bars.forEach(function(b){ b.classList.add('on'); });
-      qcount.textContent = id === 'email' ? 'Almost done' : '';
-      if(id === 'under18') progress.style.display = 'none';
-    } else {
-      bars.forEach(function(b,i){ b.classList.toggle('on', i <= idx); });
-      qcount.textContent = 'Question ' + (idx+1) + ' of 3';
-    }
-    if(id === 'email') setTimeout(function(){ document.getElementById('emailInput').focus(); }, 50);
-  }
-
-  document.querySelectorAll('.opt').forEach(function(b){
-    b.addEventListener('click', function(){ show(b.dataset.next); });
-  });
-
-  var form = document.getElementById('email');
-  var input = document.getElementById('emailInput');
-  var err = document.getElementById('emailErr');
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var v = input.value.trim();
-    if(!re.test(v)){
-      input.setAttribute('aria-invalid','true');
-      err.textContent = 'Please enter a valid email address.';
-      input.focus();
-      return;
-    }
-    input.removeAttribute('aria-invalid');
-    err.textContent = '';
-    var url = OFFER_URL;
-    if(PASS_EMAIL_PARAM){
-      url += (url.indexOf('?') > -1 ? '&' : '?') + encodeURIComponent(PASS_EMAIL_PARAM) + '=' + encodeURIComponent(v);
-    }
-    window.location.href = url;
-  });
-  input.addEventListener('input', function(){ input.removeAttribute('aria-invalid'); err.textContent = ''; });
-
-  document.getElementById('quickStart').addEventListener('click', function(e){
-    e.preventDefault();
-    document.getElementById('quiz').scrollIntoView({behavior:'smooth', block:'center'});
-    var first = document.querySelector('.step:not([hidden]) .opt, .step:not([hidden]) input');
-    if(first) setTimeout(function(){ first.focus({preventScroll:true}); }, 400);
-  });
-})();
+var tiers=[["$5",2],["$100",5],["$250",10],["$500",15],["$750",20],["$1000",25]];
+var chips=document.getElementById("chips"),out=document.getElementById("out");
+function pick(i){
+  Array.prototype.forEach.call(chips.children,function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false")});
+  out.innerHTML="";
+  var b=document.createElement("b");b.textContent=tiers[i][0]+" reward";
+  out.appendChild(b);
+  out.appendChild(document.createTextNode("Requires "+tiers[i][1]+" completed deals."));
+}
+tiers.forEach(function(t,i){
+  var c=document.createElement("button");c.className="chip";c.type="button";c.textContent=t[0];
+  c.onclick=function(){pick(i)};chips.appendChild(c);
+});
+pick(1);
 </script>
 </body>
 </html>
